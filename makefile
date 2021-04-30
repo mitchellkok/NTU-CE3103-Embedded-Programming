@@ -44,6 +44,9 @@ MQUEUE_O = mqueue.o
 MQUEUE_SRC = mqueue.c
 ALL_MQUEUE = $(MQUEUE_O) $(MQUEUE)
 
+GPIO = gpio_basic gpio_lkm
+GPIO_SRC = gpio_basic.c gpio_lkm.c
+
 # Rules
 all: $(MULTI) $(ALL_FIFO) $(ALL_SOCKET)
 
@@ -75,6 +78,9 @@ $(MQUEUE): $(MQUEUE_O)
 $(MQUEUE_O): $(MQUEUE_SRC)
 	$(CC) -c -o $@ $<
 
+#GPIO - Compile on RPI
+#$(GPIO): $(GPIO_SRC)
+#	$(CC) -o $@ $<
 
 # Clean
 clean:
