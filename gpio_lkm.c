@@ -1,5 +1,16 @@
 /*
 KERNEL SPACE GPIO ACCESS
+- Use makefile to generate .ko file
+- Use 'insmod' command to insert module
+- Use 'lsmod | egrep “mod”' to check active modules
+- Use 'dmesg | tail' to see the message(s) output by module
+  or 'tail –f /var/log/kern.log'
+- Use 'modinfo' to get the information about the module:
+- Use 'rmmod' to remove the module:
+
+Kernel functions:
+- printk(KERN_ALERT "Hello from kernel world\n"); // instead of printf
+- __init and __exit macros
 */
 
 #include <linux/init.h>

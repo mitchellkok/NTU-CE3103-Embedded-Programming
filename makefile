@@ -78,9 +78,15 @@ $(MQUEUE): $(MQUEUE_O)
 $(MQUEUE_O): $(MQUEUE_SRC)
 	$(CC) -c -o $@ $<
 
-#GPIO - Compile on RPI
+# GPIO - Compile on RPI
 #$(GPIO): $(GPIO_SRC)
 #	$(CC) -o $@ $<
+
+# GPIO LKM - Compile on RPI (gives .ko file)
+#The 1st line defines the loadable module to be built (known as goal definition)
+#obj-m := gpio_lkm.o
+#all:
+	#make -C /usr/src/linux-headers-`uname -r` M=`pwd` modules
 
 # Clean
 clean:
