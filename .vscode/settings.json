@@ -3,6 +3,7 @@
         "stdlib.h": "c",
         "stat.h": "c",
         "in.h": "c",
-        "types.h": "c"
+        "types.h": "c",
+        "posix_types.h": "c"
     }
 }

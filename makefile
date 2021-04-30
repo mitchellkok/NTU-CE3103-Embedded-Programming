@@ -28,6 +28,7 @@ THREAD_LIB = -lpthread
 MULTI = multi
 MULTI_O = multi.o
 MULTI_SRC = multi.c
+ALL_MULTI = $(MULTI_O) $(MULTI)
 
 FIFO_R = fifo_read
 FIFO_W = fifo_write
@@ -37,6 +38,11 @@ ALL_FIFO = $(FIFO_R) $(FIFO_W)
 SOCKET_C = socket_client
 SOCKET_S = socket_server
 ALL_SOCKET = $(SOCKET_C) $(SOCKET_S)
+
+MQUEUE = mqueue
+MQUEUE_O = mqueue.o
+MQUEUE_SRC = mqueue.c
+ALL_MQUEUE = $(MQUEUE_O) $(MQUEUE)
 
 # Rules
 all: $(MULTI) $(ALL_FIFO) $(ALL_SOCKET)
@@ -62,6 +68,14 @@ $(SOCKET_C): socket_client.c
 $(SOCKET_S): socket_server.c
 	$(CC) -o $@ $^ $(THREAD_LIB)
 
+# MESSAGE QUEUE
+$(MQUEUE): $(MQUEUE_O)
+	$(CC) -o $@ $^ -lrt $(THREAD_LIB)
+
+$(MQUEUE_O): $(MQUEUE_SRC)
+	$(CC) -c -o $@ $<
+
+
 # Clean
 clean:
-	sudo rm -f $(MULTI) $(ALL_FIFO) $(FIFO_PIPE) $(ALL_SOCKET)
+	sudo rm -f $(ALL_SSMULTI) $(ALL_FIFO) $(FIFO_PIPE) $(ALL_SOCKET) $(ALL_MQUEUE)

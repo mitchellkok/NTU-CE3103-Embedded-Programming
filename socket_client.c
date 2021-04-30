@@ -18,10 +18,6 @@ Socket Types
 - Behaves like a low-level file descriptor
   Accessed using commands such as read() and write()
 
-Message Queue
-- Has an explicit length and defined type (vs Named pipe that sends data w/o structure)
-- Implement the “producer-consumer” model of cooperating processes or threads.
-
 Notes
 - Private IP:               192.168.0.0 to 192.168.255.255
     -- Reserved for use on closed networks (not public internet)
