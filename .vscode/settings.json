@@ -4,6 +4,8 @@
         "stat.h": "c",
         "in.h": "c",
         "types.h": "c",
-        "posix_types.h": "c"
+        "posix_types.h": "c",
+        "ioctl.h": "c",
+        "string.h": "c"
     }
 }
